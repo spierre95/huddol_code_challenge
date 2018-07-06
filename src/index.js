@@ -2,18 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {createStore,applyMiddleware,compose} from "redux"
-import rootReducer from "./reducers/RootReducer"
 import {Provider} from "react-redux"
-import dataService from './services/data-service'
+import store from './config/store.js'
 
-
-
-const store = createStore(rootReducer,{resturantList:[]},applyMiddleware(dataService))
-
-ReactDOM.render(
+const app =
   <Provider store={store}>
     <App />
-  </Provider>, document.getElementById('root'));
+  </Provider>
 
-store.dispatch({ type: 'GET_DATA' })
+ReactDOM.render(app, document.getElementById('root'));
