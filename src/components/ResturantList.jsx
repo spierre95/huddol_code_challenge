@@ -12,7 +12,10 @@ class ResturantList extends Component{
 render(){
 
 let resturantList = this.props.resturants.map((resturant,index) =>
+  <div>
   <Resturant resturant={resturant.name} key={index}/>
+  <Menu menu={resturant.menu} key={index}/>
+  </div>
 )
 return(
 <div>
