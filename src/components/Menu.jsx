@@ -4,7 +4,7 @@ import MenuItem from './MenuItem.js';
 
 const Menu = (props) => {
   let menuItems = props.menu.map((menuItem,index)=>
-    <MenuItem addToCart={props.addToCart} menuItem={menuItem} cart={props.cart}/>)
+    <MenuItem addToCart={props.addToCart} removeFromCart={props.removeFromCart} menuItem={menuItem} cart={props.cart}/>)
   return(
     <li>
       {menuItems}

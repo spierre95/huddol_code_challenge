@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 
 const Order = (props) => {
-const itemsInCart = props.cart.filter((item) =>item.name === props.item.name ).length
+const numberOfItems = props.cart.filter((item) =>item.name === props.item.name ).length
 
   const PriceTotal = () => {
-    if(itemsInCart === 0){
+    if(numberOfItems === 0){
       return props.item.price
     }
-    return props.item.price * itemsInCart
+    return props.item.price * numberOfItems
   }
 
   return(
     <div>
-    <p>{props.item.name}</p>
-    <p>Quantity:{itemsInCart}</p>
-    <p>{PriceTotal()}</p>
+      <li>
+        <p>{props.item.name}</p>
+        <p>Quantity:{numberOfItems}</p>
+        <p>{PriceTotal()}</p>
+      </li>
     </div>
   )
 }
