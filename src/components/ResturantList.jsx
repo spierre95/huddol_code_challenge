@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Resturant from './Resturant.jsx'
+import Menu from './Menu.jsx'
 import {connect} from "react-redux"
 
 class ResturantList extends Component{
   constructor(props){
-    super(props);
+    super(props)
   }
 
 render(){
-  console.log(this.props)
-let resturantList = this.props.resturants.map((resturant,index) => <Resturant resturant={resturant.name} key={index}/>)
+
+let resturantList = this.props.resturants.map((resturant,index) =>
+  <Resturant resturant={resturant.name} key={index}/>
+)
 return(
 <div>
-  <ul>{resturantList}</ul>
+  <ul>
+    {resturantList}
+  </ul>
 </div>
 )
 }
@@ -21,11 +26,11 @@ return(
 }
 
 function mapStateToProps(reduxState){
-console.log(reduxState)
+console.log(reduxState.resturantList)
   return {
-    resturants: reduxState.resturantList
+    resturants: reduxState.resturantList,
   }
 }
 
-export default connect(mapStateToProps)(ResturantList)
+export default connect(mapStateToProps)(ResturantList);
 
