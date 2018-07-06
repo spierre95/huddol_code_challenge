@@ -5,6 +5,8 @@ const orderReducer = (state=[],action)=>{
     case 'REMOVE':
     const firstIndex = state.indexOf(action.payload)
     return state.filter((item,index) => index !== firstIndex)
+    case 'CLEAR':
+    return action.payload
     default:
     return state
   }

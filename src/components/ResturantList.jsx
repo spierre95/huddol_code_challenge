@@ -3,6 +3,7 @@ import axios from 'axios';
 import Resturant from './Resturant.jsx'
 import Menu from './Menu.jsx'
 import {connect} from "react-redux"
+import OrderSummary from './OrderSummary.js'
 
 class ResturantList extends Component{
   constructor(props){
@@ -36,6 +37,7 @@ return(
   <ul>
     {resturantList}
   </ul>
+  <OrderSummary/>
 </div>
 )
 }

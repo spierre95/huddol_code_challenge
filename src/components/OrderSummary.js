@@ -22,16 +22,25 @@ const OrderSummary = (props) => {
         {OrderSummary}
       </ul>
     <p>total: {total()}</p>
-    <button>Submit</button>
+    <button onClick= {() => props.placeOrder(props.cart)}>Submit</button>
   </div>
 
   )
 }
 
 function mapStateToProps(state){
+  console.log(state)
   return {
     cart:state.order
   }
 }
 
-export default connect(mapStateToProps)(OrderSummary)
+function mapDispatchToProps(dispatch){
+  return {
+    placeOrder:(item) =>{
+      dispatch({type:"PLACE_ORDER", payload:item})
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(OrderSummary)
